@@ -110,8 +110,8 @@ const setHeaderState = () => {
 
   if (logo) {
     logo.src = isScrolled
-      ? "images/LOGO BLACK 2.png"
-      : "images/LOGO W 2.png";
+      ? "./LOGO BLACK 2.png"
+      : "./LOGO W 2.png";
   }
 
 };
