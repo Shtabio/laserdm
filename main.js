@@ -3,6 +3,7 @@ import { PRICES } from "./prices.js";
 const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
 const menuButton = document.querySelector("[data-menu-button]");
+const logo = document.getElementById("logo");
 const serviceGrid = document.querySelector("[data-service-grid]");
 const priceTabs = document.querySelector("[data-price-tabs]");
 const priceLists = document.querySelector("[data-price-lists]");
@@ -102,7 +103,17 @@ renderServices();
 renderPrices();
 
 const setHeaderState = () => {
-  header.classList.toggle("is-scrolled", window.scrollY > 12);
+
+  const isScrolled = window.scrollY > 12;
+
+  header.classList.toggle("is-scrolled", isScrolled);
+
+  if (logo) {
+    logo.src = isScrolled
+      ? "images/LOGO BLACK 2.png"
+      : "images/LOGO W 2.png";
+  }
+
 };
 
 setHeaderState();
