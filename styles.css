@@ -1216,3 +1216,8 @@ dd {
 .franchise-steps {
     padding: 90px 0 40px;
 }
+.franchise-steps .timeline {
+    grid-column: 1 / -1;
+    max-width: 700px;
+    margin: 0;
+}
