@@ -138,15 +138,14 @@ button {
 }
 
 .site-header__nav {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  font-size: 14px;
-  font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 20px;           
+    margin-left: auto;   
 }
 
 .site-header__nav a:not(.button) {
-  position: relative;
+    white-space: nowrap;
 }
 
 .site-header__nav a:not(.button)::after,
