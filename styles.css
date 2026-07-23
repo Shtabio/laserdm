@@ -15,7 +15,7 @@
   --transition-default: 250ms ease-in-out;
   --transition-slow: 450ms ease-in-out;
   --transition-hero: 2500ms ease-in-out;
-  --font-body: "Cinzel Cyrillic", Arial, sans-serif;
+  --font-body: "Cinzel", serif;
   --container: 1320px;
 }
 
