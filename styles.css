@@ -25,6 +25,19 @@
     font-weight: 700;
     font-style: normal;
 }
+@font-face {
+    font-family: "TildaSans";
+    src: url("./fonts/TildaSans-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "TildaSans";
+    src: url("./fonts/TildaSans-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
 :root {
   --color-primary: #dcd3c2;
   --color-secondary: #a89b86;
@@ -370,7 +383,7 @@ p {
     max-width: 880px;
     margin-bottom: 24px;
     font-size: 64px;
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .hero__text {
