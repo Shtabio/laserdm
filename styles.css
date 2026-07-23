@@ -366,10 +366,11 @@ p {
 }
 
 .hero__title {
-  max-width: 880px;
-  margin-bottom: 24px;
-  font-size: 64px;
-  font-weight: 500;
+    font-family: "TildaSans", sans-serif;
+    max-width: 880px;
+    margin-bottom: 24px;
+    font-size: 64px;
+    font-weight: 700;
 }
 
 .hero__text {
@@ -1195,10 +1196,6 @@ dd {
     border-color: var(--color-primary);
 }
 #reviews-title h2 {
-    font-family: "TildaSans", sans-serif;
-    font-weight: 700;
-}
-#hero-title {
     font-family: "TildaSans", sans-serif;
     font-weight: 700;
 }
