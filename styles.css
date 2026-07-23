@@ -312,10 +312,11 @@ h6 {
 }
 
 h2 {
-  max-width: 780px;
-  margin-bottom: 24px;
-  font-size: 42px;
-  font-weight: 600;
+    font-family: "TildaSans", sans-serif;
+    max-width: 780px;
+    margin-bottom: 24px;
+    font-size: 42px;
+    font-weight: 900;
 }
 
 h3 {
@@ -1210,5 +1211,5 @@ dd {
 }
 #reviews-title h2 {
     font-family: "TildaSans", sans-serif;
-    font-weight: 700;
+    font-weight: 900;
 }
