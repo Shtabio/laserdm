@@ -1114,3 +1114,8 @@ dd {
         grid-template-columns:1fr;
     }
 }
+.site-header__nav {
+    display: flex !important;
+    gap: 40px !important;
+    background: rgba(255,0,0,.1) !important;
+}
