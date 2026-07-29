@@ -116,9 +116,9 @@ button {
   transform: translateY(0);
 }
 
-.container {
-  width: min(100% - 160px, var(--container));
-  margin: 0 auto;
+.container{
+    width:min(100% - 32px, var(--container));
+    max-width:100%;
 }
 
 .section {
@@ -1236,4 +1236,9 @@ dd {
     height:320px;
     border-radius:24px;
     overflow:hidden;
+}
+html,
+body{
+    overflow-x:hidden;
+    width:100%;
 }
