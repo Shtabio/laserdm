@@ -4,7 +4,7 @@ function init() {
 
     const map1 = new ymaps.Map("map1", {
         center: [30.206078, 60.030197],
-        zoom: 16
+        zoom: 21
     });
 
     map1.behaviors.enable("scrollZoom");
@@ -15,7 +15,7 @@ function init() {
 
     const map2 = new ymaps.Map("map2", {
         center: [30.205960, 60.029508],
-        zoom: 16
+        zoom: 21
     });
 
     map2.behaviors.enable("scrollZoom");
