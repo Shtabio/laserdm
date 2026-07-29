@@ -117,8 +117,8 @@ button {
 }
 
 .container{
-    width:min(100% - 32px, var(--container));
-    max-width:100%;
+    width: min(100% - 160px, var(--container));
+    margin: 0 auto;
 }
 
 .section {
