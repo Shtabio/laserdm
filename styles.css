@@ -369,7 +369,7 @@ p {
 .hero__media {
   background:
     linear-gradient(135deg, rgba(220, 211, 194, .35), rgba(43, 43, 43, .18)),
-    url("салон (1).jpg") center / cover;
+    url("салон.jpg") center / cover;
   animation: heroReveal var(--transition-hero) both;
 }
 
