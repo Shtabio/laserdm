@@ -14,13 +14,13 @@ function init() {
     );
 
     const map2 = new ymaps.Map("map2", {
-        center: [59.984854, 30.305975],
+        center: [30.205960, 60.029508],
         zoom: 16
     });
 
     map2.behaviors.enable("scrollZoom");
 
     map2.geoObjects.add(
-        new ymaps.Placemark([59.984854, 30.305975])
+        new ymaps.Placemark([30.205960, 60.029508])
     );
 }
