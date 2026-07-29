@@ -41,12 +41,12 @@
 :root {
   --color-primary: #dcd3c2;
   --color-secondary: #a89b86;
-  --color-background: #f8f7f5;
-  --color-white: #ffffff;
-  --color-text: #2b2b2b;
-  --color-muted: #6b6b6b;
-  --color-divider: #e8e5df;
-  --color-success: #5b8a5a;
+  --color-background: #f0ebdf;
+  --color-white: #fff8e7;
+  --color-text: #4c3d28;
+  --color-muted: #d1cac0;
+  --color-divider: #f2efe5;
+  --color-success: #ffg1b5;
   --radius-small: 12px;
   --radius-medium: 16px;
   --radius-large: 24px;
