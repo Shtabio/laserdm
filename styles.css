@@ -849,6 +849,7 @@ dd {
 }
 .contact-panel__buttons {
     display: flex;
+    flex-wrap:wrap;
     gap: 16px;
 }
 
@@ -1127,7 +1128,13 @@ dd {
 .hero__scroll{
     display:none;
 }
+.contact-panel__buttons{
+    flex-direction: column;
+}
 
+.contact-panel__buttons .button{
+    width:100%;
+}
   .card-grid {
     grid-template-columns: 1fr;
   }
