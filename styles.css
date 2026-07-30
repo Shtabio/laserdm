@@ -1252,3 +1252,79 @@ body{
     overflow-x:hidden;
     width:100%;
 }
+.cookie-banner{
+    position:fixed;
+    left:50%;
+    bottom:24px;
+    transform:translate(-50%,120%);
+    width:min(900px,calc(100% - 40px));
+
+    background:var(--color-text);
+    color:#fff;
+
+    border-radius:20px;
+
+    padding:22px 28px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.18);
+
+    z-index:999;
+
+    transition:.35s ease;
+}
+
+.cookie-banner.show{
+    transform:translate(-50%,0);
+}
+
+.cookie-banner__content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.cookie-banner strong{
+    display:block;
+    margin-bottom:8px;
+    font-size:18px;
+}
+
+.cookie-banner p{
+    margin:0;
+    color:rgba(255,255,255,.75);
+    line-height:1.6;
+}
+
+.cookie-banner__actions{
+    display:flex;
+    gap:12px;
+    flex-shrink:0;
+}
+
+.cookie-banner .button{
+    min-width:150px;
+}
+
+@media(max-width:768px){
+
+.cookie-banner{
+    bottom:15px;
+    padding:20px;
+}
+
+.cookie-banner__content{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.cookie-banner__actions{
+    width:100%;
+    flex-direction:column;
+}
+
+.cookie-banner .button{
+    width:100%;
+}
+
+}
