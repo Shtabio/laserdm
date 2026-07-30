@@ -211,3 +211,21 @@ lightbox?.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !lightbox.hidden) hideLightbox();
 });
+const cookieBanner = document.getElementById("cookieBanner");
+const acceptCookies = document.getElementById("acceptCookies");
+
+if (!localStorage.getItem("cookiesAccepted")) {
+
+    setTimeout(() => {
+        cookieBanner.classList.add("show");
+    }, 800);
+
+}
+
+acceptCookies?.addEventListener("click", () => {
+
+    localStorage.setItem("cookiesAccepted", "true");
+
+    cookieBanner.classList.remove("show");
+
+});
