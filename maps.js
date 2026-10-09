@@ -3,14 +3,14 @@ ymaps.ready(init);
 function init() {
 
     const map1 = new ymaps.Map("map1", {
-        center: [60.029508, 30.205959],
+        center: [60.030178, 30.206035],
         zoom: 16
     });
 
     map1.behaviors.enable("scrollZoom");
 
     map1.geoObjects.add(
-        new ymaps.Placemark([60.029508, 30.205959])
+        new ymaps.Placemark([60.030178, 30.206035])
     );
 
     const map2 = new ymaps.Map("map2", {
