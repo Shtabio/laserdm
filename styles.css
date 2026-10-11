@@ -1863,7 +1863,7 @@ body{
     width: 100%;
     scroll-snap-align: center;
     box-sizing: border-box;
-    overflow-y: auto !important;
+    overflow-y: hidden !important;
     
     /* Жестко скрываем скроллбар для Firefox */
     scrollbar-width: none !important;
