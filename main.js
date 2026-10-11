@@ -46,25 +46,32 @@ const groupedPrices = PRICES.reduce((groups, item) => {
 }, new Map());
 
 const renderServices = () => {
-  const popular = PRICES.filter((item) => item.popular || item.photo).slice(0, 3);
+  // Выбираем 3 популярные услуги с привязанными фотографиями
+  const popular = PRICES.filter((item) => item.photo && item.popular).slice(0, 3);
 
-  serviceGrid.innerHTML = popular.map((item) => `
-    <article class="service-card reveal">
-      <div class="service-card__image">
-        <img src="${item.photo}" alt="${item.name}" loading="lazy">
-      </div>
-      <div class="service-card__content">
-        <p class="service-card__category">${categoryAlias(item.category)}</p>
-        <h3>${item.name}</h3>
-        <p>${categoryDescription(item.category)}</p>
-        <dl>
-          <div><dt>Категория</dt><dd>${categoryAlias(item.category)}</dd></div>
-          <div><dt>Цена</dt><dd>${formatPrice(item.price)}</dd></div>
-        </dl>
-        <a class="text-link" href="#pricing">Смотреть цены</a>
-      </div>
-    </article>
-  `).join("");
+  serviceGrid.innerHTML = popular.map((item) => {
+    const priceVal = item.prices 
+      ? (item.prices[1] || Object.values(item.prices)[0]) 
+      : item.price;
+
+    return `
+      <article class="service-card reveal">
+        <div class="service-card__image">
+          <img src="${item.photo}" alt="${item.name}" loading="lazy">
+        </div>
+        <div class="service-card__content">
+          <p class="service-card__category">${categoryAlias(item.category)}</p>
+          <h3>${item.name}</h3>
+          <p>${categoryDescription(item.category)}</p>
+          <dl>
+            <div><dt>Категория</dt><dd>${categoryAlias(item.category)}</dd></div>
+            <div><dt>Цена</dt><dd>${formatPrice(priceVal)}</dd></div>
+          </dl>
+          <a class="text-link" href="#pricing">Смотреть цены</a>
+        </div>
+      </article>
+    `;
+  }).join("");
 };
 
 const renderPrices = () => {
@@ -81,19 +88,68 @@ const renderPrices = () => {
 
   priceLists.innerHTML = categories.map((category, index) => {
     const slug = slugify(category);
-    const rows = groupedPrices.get(category).map((item) => `
-      <div class="price-row" data-price-row>
-        <span>
-          ${item.name}
-          ${item.popular ? '<em>Популярное</em>' : ""}
-        </span>
-        <strong>${formatPrice(item.price)}</strong>
-      </div>
-    `).join("");
+    const items = [...groupedPrices.get(category)].sort((a, b) => (b.popular ? 1 : 0) - (a.popular ? 1 : 0));
+
+    const rows = items.map((item) => {
+      if (item.type === "sessions") {
+        const keys = Object.keys(item.prices).map(Number).sort((a, b) => a - b);
+        const defaultKey = keys[0];
+        const defaultPrice = item.prices[defaultKey];
+
+        const sessionButtons = keys.map((k) => `
+          <button type="button" class="session-btn ${k === defaultKey ? 'is-active' : ''}" data-sessions="${k}" data-price="${item.prices[k]}">${k}</button>
+        `).join("");
+
+        return `
+          <div class="price-card-item" data-price-row data-name="${item.name.toLowerCase()}">
+            <div class="price-card-top">
+              <span class="price-card__title">
+                ${item.name}
+                ${item.popular ? '<em>Популярное</em>' : ""}
+              </span>
+            </div>
+            
+            <div class="price-sessions" aria-label="Количество сеансов">
+              <span class="sessions-label">Сеансы:</span>
+              <div class="sessions-group">${sessionButtons}</div>
+            </div>
+
+            <div class="price-card-bottom">
+              <div class="price-card__desc">${item.description || "Эффективный уход для гладкости кожи."}</div>
+              <div class="price-card__price-action">
+                <div class="price-val" data-price-output>${formatPrice(defaultPrice)}</div>
+                <a class="button button--small" href="https://n1962797.yclients.com/select-city/1/select-branch?o=m-1" target="_blank" rel="noopener">Записаться</a>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        return `
+          <div class="price-card-item" data-price-row data-name="${item.name.toLowerCase()}">
+            <div class="price-card-top">
+              <span class="price-card__title">
+                ${item.name}
+                ${item.popular ? '<em>Популярное</em>' : ""}
+              </span>
+            </div>
+
+            <div class="price-card-bottom">
+              <div class="price-card__desc">${item.description || "Профессиональная процедура в студии."}</div>
+              <div class="price-card__price-action">
+                <div class="price-val">${formatPrice(item.price)}</div>
+                <a class="button button--small" href="https://n1962797.yclients.com/select-city/1/select-branch?o=m-1" target="_blank" rel="noopener">Записаться</a>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }).join("");
 
     return `
       <div class="price-list ${index === 0 ? "is-active" : ""}" id="tab-${slug}" role="tabpanel" aria-labelledby="tab-button-${slug}" data-price-list="${slug}" ${index === 0 ? "" : "hidden"}>
-        ${rows}
+        <div class="price-items-grid">
+          ${rows}
+        </div>
       </div>
     `;
   }).join("");
@@ -102,18 +158,27 @@ const renderPrices = () => {
 renderServices();
 renderPrices();
 
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".session-btn");
+  if (!btn) return;
+
+  const card = btn.closest(".price-card-item");
+  card.querySelectorAll(".session-btn").forEach((b) => b.classList.remove("is-active"));
+  btn.classList.add("is-active");
+
+  const priceVal = btn.dataset.price;
+  const output = card.querySelector("[data-price-output]");
+  output.textContent = formatPrice(priceVal);
+});
+
 const setHeaderState = () => {
-
   const isScrolled = window.scrollY > 12;
-
   header.classList.toggle("is-scrolled", isScrolled);
-
   if (logo) {
     logo.src = isScrolled
       ? "./Лого сайт 200х200 тёмное.webp"
       : "./Лого сайт 200х200 светлое.webp";
   }
-
 };
 
 setHeaderState();
@@ -150,7 +215,8 @@ document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(it
 const filterRows = () => {
   const query = searchInput.value.trim().toLowerCase();
   document.querySelectorAll(".price-list.is-active [data-price-row]").forEach((row) => {
-    row.hidden = query.length > 0 && !row.textContent.toLowerCase().includes(query);
+    const name = row.dataset.name || "";
+    row.hidden = query.length > 0 && !name.includes(query);
   });
 };
 
@@ -211,21 +277,17 @@ lightbox?.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !lightbox.hidden) hideLightbox();
 });
+
 const cookieBanner = document.getElementById("cookieBanner");
 const acceptCookies = document.getElementById("acceptCookies");
 
 if (!localStorage.getItem("cookiesAccepted")) {
-
-    setTimeout(() => {
-        cookieBanner.classList.add("show");
-    }, 800);
-
+  setTimeout(() => {
+    cookieBanner?.classList.add("show");
+  }, 800);
 }
 
 acceptCookies?.addEventListener("click", () => {
-
-    localStorage.setItem("cookiesAccepted", "true");
-
-    cookieBanner.classList.remove("show");
-
+  localStorage.setItem("cookiesAccepted", "true");
+  cookieBanner?.classList.remove("show");
 });

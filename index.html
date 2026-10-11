@@ -37,7 +37,6 @@
         <a href="#story">О нас</a>
         <a href="#services">Услуги</a>
         <a href="#pricing">Цены</a>
-        <a href="#franchise">Франшиза</a>
         <a href="#contacts">Контакты</a>
         <a class="button button--small" href="https://n1962797.yclients.com/select-city/1/select-branch?o=m-1" target="_blank" rel="noopener">Записаться</a>
       </nav>
@@ -84,17 +83,32 @@
             <h2>Наши специалисты</h2>
             <p>Опытные эксперты, для которых ваша безопасность и комфорт — главный приоритет.</p>
         </div>
-        <div class="card-grid" style="grid-template-columns: repeat(2, 1fr);">
-            <div class="value-card">
-                <h3>Специалист по лазерной эпиляции</h3>
-                <div class="team-experience" style="color: var(--color-secondary); font-size: 14px; font-weight: 700; margin-bottom: 12px; text-transform: uppercase;">Опыт работы от 3 лет</div>
-                <p class="team-text" style="color: var(--color-muted); margin: 0;">Внимательно подходит к каждому сеансу, подбирает индивидуальные параметры с учётом особенностей кожи и заботится о вашем комфорте на каждом этапе.</p>
-            </div>
-            <div class="value-card">
-                <h3>Ведущий специалист</h3>
-                <div class="team-experience" style="color: var(--color-secondary); font-size: 14px; font-weight: 700; margin-bottom: 12px; text-transform: uppercase;">Эксперт аппаратных методик</div>
-                <p class="team-text" style="color: var(--color-muted); margin: 0;">Проводит подробные консультации, отвечает на все вопросы и помогает выстроить безопасный и эффективный курс процедур.</p>
-            </div>
+        <article class="team-card reveal">
+          <div class="team-card__image">
+            <img src="Команда.jpg" alt="Виктория Губина — мастер перманентного макияжа" loading="lazy">
+          </div>
+          <div class="team-card__content">
+            <span class="team-card__badge">Опыт 8+ лет</span>
+            <h3 class="team-card__name">Виктория Губина</h3>
+            <p class="team-card__role">Мастер перманентного макияжа и трихопигментации (SMP)</p>
+            
+            <p class="team-card__intro">
+              Виктория занимается перманентным макияжем больше 8 лет. Работает с бровями и губами, исправляет неудачный татуаж, в том числе в сложных случаях. Подбирает форму с учётом черт лица, уделяет внимание деталям и работает аккуратно.
+            </p>
+
+            <p class="team-card__intro">
+              В этом году Виктория прошла обучение по трихопигментации SmpPro. Это косметическая процедура, которая помогает визуально создать густоту волос за счёт нанесения пигмента на кожу головы.
+            </p>
+
+            <p class="team-card__intro">
+              Виктория любит своё дело и старается, чтобы на процедуре вам было спокойно и комфортно. Некоторые клиенты настолько расслабляются, что даже засыпают.
+            </p>
+
+            <a class="button button--small" href="https://n1962797.yclients.com/select-city/1/select-branch?o=m-1" target="_blank" rel="noopener">
+              Записаться к Виктории
+            </a>
+  </div>
+</article>
         </div>
     </div>
 </section>
@@ -136,7 +150,7 @@
       </section>
 
       <section class="visit section" aria-labelledby="visit-title">
-        <div class="container grid grid--visit">
+        <div class="container">
           <div class="section-intro reveal">
             <p class="eyebrow">Первый визит</p>
             <h2 id="visit-title">Как проходит первый визит</h2>
@@ -145,13 +159,13 @@
           <ol class="timeline">
             <li class="timeline__item reveal">
               <h3>Знакомство</h3>
-              <p>При первом визите мы оформляем карту здоровья и добровольное согласие на процедуру. 
-                Для нас это не формальность и не просто документы. Это важная часть профессионального подхода: мы заранее знакомимся с особенностями вашего здоровья, фиксируем необходимую информацию и только после этого переходим к процедуре. Такой уровень внимания — основа нашей работы.</p>
+              <p style="margin-bottom: 12px;">При первом визите мы оформляем карту здоровья и добровольное согласие на процедуру.</p>
+              <p>Для нас это не формальность и не просто документы. Это важная часть профессионального подхода: мы заранее знакомимся с особенностями вашего здоровья, фиксируем необходимую информацию и только после этого переходим к процедуре. Такой уровень внимания — основа нашей работы.</p>
             </li>
             <li class="timeline__item reveal">
               <h3>Консультация</h3>
-              <p>Специалист, ознакомившись с картой здоровья, уточнит важные детали и расскажет, как будет проходить процедура именно в вашем случае. 
-                Объяснит принцип работы диодного лазера, ответит на вопросы и даст всю необходимую информацию перед началом.</p>
+              <p style="margin-bottom: 12px;">Специалист, ознакомившись с картой здоровья, уточнит важные детали и расскажет, как будет проходить процедура именно в вашем случае.</p>
+              <p>Объяснит принцип работы диодного лазера, ответит на вопросы и даст всю необходимую информацию перед началом.</p>
             </li>
             <li class="timeline__item reveal">
               <h3>Процедура</h3>
@@ -163,8 +177,8 @@
             </li>
             <li class="timeline__item reveal">
               <h3>Следующий визит</h3>
-              <p>Специалист определит оптимальный интервал для следующего посещения.
-                Администратор поможет подобрать удобную дату и время, чтобы курс проходил последовательно и с учётом индивидуального графика.</p>
+              <p style="margin-bottom: 12px;">Специалист определит оптимальный интервал для следующего посещения.</p>
+              <p>Администратор поможет подобрать удобную дату и время, чтобы курс проходил последовательно и с учётом индивидуального графика.</p>
             </li>
           </ol>
         </div>
@@ -197,9 +211,6 @@
               <input type="search" placeholder="Например, голени" data-price-search>
             </label>
             <div class="price-lists" data-price-lists></div>
-            <div class="price-panel__actions">
-              <a class="button" href="https://n1962797.yclients.com/select-city/1/select-branch?o=m-1" target="_blank" rel="noopener">Записаться через YCLIENTS</a>
-            </div>
           </div>
         </div>
       </section>
@@ -213,19 +224,23 @@
           <div class="accordion" data-accordion>
             <div class="accordion__item reveal">
               <button type="button" aria-expanded="false">Это больно?</button>
-              <div class="accordion__content"><p>Мы работаем на аппаратах нового поколения с мощной охладительной системой. Единственное, что вы можете ощущать в течение процедуры — теплота и лёгкое покалывание.
-                Покалывание — обязательный процесс разрушения луковицы.
-                Сильное жжение, выраженная боль или ощущение «очень горячо» — не то, что должно сопровождать качественно проведённую процедуру.</p></div>
+              <div class="accordion__content">
+                <p style="margin-bottom: 12px;">Мы работаем на аппаратах нового поколения с мощной охладительной системой. Единственное, что вы можете ощущать в течение процедуры — теплота и лёгкое покалывание.</p>
+                <p style="margin-bottom: 12px;">Покалывание — обязательный процесс разрушения луковицы.</p>
+                <p>Сильное жжение, выраженная боль или ощущение «очень горячо» — не то, что должно сопровождать качественно проведённую процедуру.</p>
+              </div>
             </div>
             <div class="accordion__item reveal">
               <button type="button" aria-expanded="false">Как подготовиться к лазерной эпиляции?</button>
-              <div class="accordion__content"><p>За неделю до визита исключите загар, солярий и активное воздействие солнца. Не используйте средства, которые травмируют или раздражают кожу. 
-                Перед первым визитом необходимо сбрить волосы за сутки до процедуры.
-                Если вы уже проходили лазерную эпиляцию и хотите достичь идеального результата, расскажите об этом администратору — он подскажет, как подготовиться именно в вашем случае</p></div>
+              <div class="accordion__content">
+                <p style="margin-bottom: 12px;">За неделю до визита исключите загар, солярий и активное воздействие солнца. Не используйте средства, которые травмируют или раздражают кожу.</p>
+                <p style="margin-bottom: 12px;">Перед первым визитом необходимо сбрить волосы за сутки до процедуры.</p>
+                <p>Если вы уже проходили лазерную эпиляцию и хотите достичь идеального результата, расскажите об этом администратору — он подскажет, как подготовиться именно в вашем случае.</p>
+              </div>
             </div>
             <div class="accordion__item reveal">
               <button type="button" aria-expanded="false">Есть ли противопоказания?</button>
-              <div class="accordion__content"><p>К числу абсолютных противопоказаний для проведения диодной лазерной эпиляции относятся: гестационный период, наличие злокачественных новообразований любой локализации, а также терапия препаратами группы ретиноидов (системного действия).</p></div>
+              <div class="accordion__content"><p>К&nbsp;числу абсолютных противопоказаний для&nbspпроведения диодной лазерной эпиляции относятся: гестационный период, наличие злокачественных новообразований любой локализации, а&nbsp;также терапия препаратами группы ретиноидов (системного действия).</p></div>
             </div>
             <div class="accordion__item reveal">
               <button type="button" aria-expanded="false">Можно ли перенести запись?</button>
@@ -266,127 +281,6 @@
         </div>
       </section>
       
-<section class="franchise section section--warm" id="franchise" aria-labelledby="franchise-title">
-    <div class="container">
-        <div class="section-intro reveal">
-            <p class="eyebrow">Франшиза</p>
-            <h2 id="franchise-title">Откройте собственную студию DM Лазер</h2>
-            <p>
-                Мы создали систему, которая позволяет открыть современную студию
-                эстетической косметологии с поддержкой опытной команды.
-                Получите готовую бизнес-модель, стандарты работы и сопровождение
-                на каждом этапе развития.
-            </p>
-        </div>
-        <div class="card-grid">
-            <article class="value-card reveal">
-                <span class="value-card__icon">01</span>
-                <h3>Готовая бизнес-модель</h3>
-                <p>Все процессы уже выстроены: от открытия до ежедневной работы студии.</p>
-            </article>
-
-            <article class="value-card reveal">
-                <span class="value-card__icon">02</span>
-                <h3>Обучение команды</h3>
-                <p>Подготовим владельца, администраторов и специалистов по единым стандартам.</p>
-            </article>
-
-            <article class="value-card reveal">
-                <span class="value-card__icon">03</span>
-                <h3>Маркетинг</h3>
-                <p>Поможем привлечь первых клиентов и выстроить стабильный поток заявок.</p>
-            </article>
-
-            <article class="value-card reveal">
-                <span class="value-card__icon">04</span>
-                <h3>Поддержка</h3>
-                <p>Сопровождаем партнеров после запуска и помогаем масштабировать бизнес.</p>
-            </article>
-
-        </div>
-
-        <div class="price-panel reveal" style="margin-top:80px;">
-
-            <h3 style="margin-bottom:32px;">Основные условия</h3>
-
-            <div class="price-row">
-                <span>Паушальный взнос</span>
-                <strong>По запросу</strong>
-            </div>
-
-            <div class="price-row">
-                <span>Инвестиции в открытие</span>
-                <strong>от 3 млн ₽</strong>
-            </div>
-
-            <div class="price-row">
-                <span>Окупаемость</span>
-                <strong>12–18 месяцев</strong>
-            </div>
-
-            <div class="price-row">
-                <span>Роялти</span>
-                <strong>Индивидуально</strong>
-            </div>
-
-        </div>
-
-        <div style="padding:90px 0 40px;">
-
-            <div class="section-intro">
-                <p class="eyebrow">Этапы запуска</p>
-                <h2>Запуск студии в 5 шагов</h2>
-            </div>
-
-            <ol class="timeline">
-
-                <li class="timeline__item reveal">
-                    <h3>1. Заявка</h3>
-                    <p>Вы оставляете заявку, знакомимся и обсуждаем ваш город.</p>
-                </li>
-
-                <li class="timeline__item reveal">
-                    <h3>2. Консультация</h3>
-                    <p>Показываем финансовую модель и отвечаем на все вопросы.</p>
-                </li>
-
-                <li class="timeline__item reveal">
-                    <h3>3. Подготовка</h3>
-                    <p>Помогаем подобрать помещение, оборудование и персонал.</p>
-                </li>
-
-                <li class="timeline__item reveal">
-                    <h3>4. Обучение</h3>
-                    <p>Обучаем владельца и команду всем стандартам работы DM Лазер.</p>
-                </li>
-
-                <li class="timeline__item reveal">
-                    <h3>5. Открытие</h3>
-                    <p>Запускаем маркетинг, сопровождаем открытие и продолжаем поддерживать партнера.</p>
-                </li>
-            </ol>
-        </div>
-        <div class="contact-panel reveal" style="margin-top:60px;">
-            <div>
-                <p class="eyebrow">Стать партнером</p>
-                <h2>Получите презентацию франшизы</h2>
-                <p>
-                    Оставьте заявку, и мы отправим подробную презентацию,
-                    финансовую модель и условия сотрудничества.
-                </p>
-            </div>
-            <div class="contact-panel__actions">
-                <a class="button" href="#contacts">
-                    Получить презентацию
-                </a>
-                <a class="button button--secondary" href="#contacts">
-                    Задать вопрос
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-  
 <section class="contacts section section--contact" id="contacts">
     <div class="container">
         <div class="contact-panel reveal">
@@ -410,25 +304,24 @@
       <div class="contact-panel__messengers">
         <span class="contact-panel__label">Напишите нам</span>
 
-        <a class="messenger-link" href="https://t.me/Dream_Lazer" target="_blank" rel="noopener">
-          <!-- SVG Telegram -->
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-            <path d="M21.9 3.6 2.8 10.9c-.9.4-.9 1.1-.2 1.3l4.9 1.5 1.9 6c.2.6.1.8.8.8.5 0 .7-.2 1-.5l2.4-2.3 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15.2c.3-1.3-.5-1.9-1.5-1.5Z"/>
-          </svg>
+        <div class="contact-panel__buttons" style="margin-top: 10px;">
+          <a class="button button--secondary" href="https://t.me/Dream_Lazer" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
+            <!-- SVG Telegram -->
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M21.9 3.6 2.8 10.9c-.9.4-.9 1.1-.2 1.3l4.9 1.5 1.9 6c.2.6.1.8.8.8.5 0 .7-.2 1-.5l2.4-2.3 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15.2c.3-1.3-.5-1.9-1.5-1.5Z"/>
+            </svg>
+            Telegram
+          </a>
 
-          Telegram
-        </a>
-
-        <a class="messenger-link" href="https://wa.me/79956293929" target="_blank" rel="noopener">
-          <!-- SVG WhatsApp -->
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-            <path d="M20.5 3.5A11 11 0 0 0 3.7 17.1L2 22l5-1.6A11 11 0 1 0 20.5 3.5Zm-8.5 16a8.6 8.6 0 0 1-4.4-1.2l-.3-.2-3 .9.9-2.9-.2-.3a8.6 8.6 0 1 1 7 3.7Zm4.8-6.5c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2l-.6.8c-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.7-1.8c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.5 3.9 2.6 1.1 2.6.7 3 .7.4 0 1.4-.6 1.6-1.2.2-.6.2-1.1.2-1.2 0-.1-.2-.2-.5-.4Z"/>
-          </svg>
-
-          WhatsApp
-        </a>
+          <a class="button button--secondary" href="https://wa.me/79956293929" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
+            <!-- SVG WhatsApp -->
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M20.5 3.5A11 11 0 0 0 3.7 17.1L2 22l5-1.6A11 11 0 1 0 20.5 3.5Zm-8.5 16a8.6 8.6 0 0 1-4.4-1.2l-.3-.2-3 .9.9-2.9-.2-.3a8.6 8.6 0 1 1 7 3.7Zm4.8-6.5c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2l-.6.8c-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.7-1.8c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.5 3.9 2.6 1.1 2.6.7 3 .7.4 0 1.4-.6 1.6-1.2.2-.6.2-1.1.2-1.2 0-.1-.2-.2-.5-.4Z"/>
+            </svg>
+            WhatsApp
+          </a>
+        </div>
       </div>
-    </div>
   </div>
 </div>
 </div>
@@ -442,7 +335,14 @@
           <a href="#pricing">Цены</a>
           <a href="#contacts">Контакты</a>
         </nav>
-        <small>© 2026 DM Лазер. Политика конфиденциальности.</small>
+        <div class="footer-legal">
+          <small>© 2026 DM Лазер.</small>
+          <div class="footer-legal__links">
+            <a href="./privacy.html" target="_blank">Политика конфиденциальности</a>
+            <span class="separator">·</span>
+            <a href="./offer.html" target="_blank">Публичная оферта</a>
+          </div>
+        </div>
       </div>
     </footer>
 
@@ -452,29 +352,29 @@
     </div>
 
     <script type="module" src="./main.js"></script>
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=5a5f6cbd-55b8-4bbe-a196-dace321bd95c&lang=ru_RU"></script>
-  <script src="maps.js"></script>
-  <div class="cookie-banner" id="cookieBanner">
-    <div class="cookie-banner__content">
-        <div>
-            <strong>🍪 Мы используем файлы cookie</strong>
-            <p>
-                Продолжая пользоваться сайтом, вы соглашаетесь с использованием
-                файлов cookie для улучшения работы сайта.
-            </p>
-        </div>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=5a5f6cbd-55b8-4bbe-a196-dace321bd95c&lang=ru_RU"></script>
+    <script src="maps.js"></script>
+    <div class="cookie-banner" id="cookieBanner">
+      <div class="cookie-banner__content">
+          <div>
+              <strong>🍪 Мы используем файлы cookie</strong>
+              <p>
+                  Продолжая пользоваться сайтом, вы соглашаетесь с использованием
+                  файлов cookie для улучшения работы сайта.
+              </p>
+          </div>
 
-        <div class="cookie-banner__actions">
-            <button class="button button--small" id="acceptCookies">
-                Принять
-            </button>
+          <div class="cookie-banner__actions">
+              <button class="button button--small" id="acceptCookies">
+                  Принять
+              </button>
 
-            <a class="button button--small"
-               href="#privacy">
-                Подробнее
-            </a>
-        </div>
+              <a class="button button--small"
+                 href="./privacy.html" target="_blank">
+                  Подробнее
+              </a>
+          </div>
+      </div>
     </div>
-</div>
   </body>
 </html>
