@@ -291,3 +291,19 @@ acceptCookies?.addEventListener("click", () => {
   localStorage.setItem("cookiesAccepted", "true");
   cookieBanner?.classList.remove("show");
 });
+/* Логика прокрутки карусели команды по стрелкам */
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('team-carousel');
+    const prevBtn = document.getElementById('team-prev');
+    const nextBtn = document.getElementById('team-next');
+
+    if (carousel && prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+        });
+    }
+});
