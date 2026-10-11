@@ -1863,15 +1863,18 @@ body{
     width: 100%;
     scroll-snap-align: center;
     box-sizing: border-box;
-    overflow-y: auto; /* Позволяет прокручивать текст внутри карточки, если он не влезает */
-    scrollbar-width: none; /* Скрывает скроллбар в Firefox */
+    overflow-y: auto !important;
+    
+    /* Жестко скрываем скроллбар для Firefox */
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
 }
 
-/* Скрываем вертикальный скроллбар в Chrome, Safari и Edge */
+/* Жестко скрываем скроллбар для Chrome, Safari и Edge */
 .team-carousel .team-card::-webkit-scrollbar {
-    display: none;
-    width: 0;
-    height: 0;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
 }
 /* Круглая кнопка-стрелка */
 .carousel-nav {
@@ -1940,4 +1943,20 @@ body{
     .carousel-nav--next {
         right: 8px;
     }
+}
+
+/* Полностью скрываем скроллбары для карусели и карточек */
+.team-carousel-wrapper,
+.team-carousel,
+.team-carousel .team-card {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+.team-carousel-wrapper::-webkit-scrollbar,
+.team-carousel::-webkit-scrollbar,
+.team-carousel .team-card::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
 }
