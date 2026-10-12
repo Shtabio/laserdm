@@ -307,3 +307,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+/*онлайн запись*/
+const floatingBooking = document.getElementById("floatingBooking");
+const floatingToggle = document.getElementById("floatingToggle");
+
+if (floatingBooking && floatingToggle) {
+    floatingToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        floatingBooking.classList.toggle("is-open");
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!floatingBooking.contains(e.target)) {
+            floatingBooking.classList.remove("is-open");
+        }
+    });
+}

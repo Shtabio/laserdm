@@ -1961,3 +1961,145 @@ body{
     width: 0 !important;
     height: 0 !important;
 }
+.floating-booking {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    font-family: inherit;
+}
+
+/* Кнопка-капсула */
+.floating-booking__btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #d4c2ab 0%, #b89778 100%);
+    color: #3b2e26;
+    border: 2px solid #ffffff; /* Внутренняя четкая белая рамка */
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(44, 34, 30, 0.18);
+    transition: transform 0.3s ease, background 0.3s ease;
+    z-index: 1;
+}
+
+/* Первая волна: вылезает из рамки и растворяется */
+.floating-booking__btn::before,
+.floating-booking__btn::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50px;
+    border: 2px solid #8c7355;
+    pointer-events: none;
+    z-index: -1;
+    animation: ripple-out 2.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+/* Вторая волна с задержкой для непрерывного эффекта */
+.floating-booking__btn::after {
+    animation-delay: 1.3s;
+}
+
+.floating-booking__btn svg {
+    stroke: #3b2e26;
+    width: 16px;
+    height: 16px;
+}
+
+.floating-booking__btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #e3d3bd 0%, #c4a384 100%);
+}
+
+/* --- Ключевые кадры: рождение волны, расширение наружу и затухание --- */
+@keyframes ripple-out {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+        border-color: #8c7355;
+        box-shadow: 0 0 0 0 rgba(140, 115, 85, 0.5);
+    }
+    50% {
+        opacity: 0.6;
+        border-color: #b89778;
+    }
+    100% {
+        transform: scale(1.35, 1.55); /* Волна расширяется наружу */
+        opacity: 0;                   /* И полностью исчезает */
+        border-color: rgba(184, 151, 120, 0);
+        box-shadow: 0 0 20px 8px rgba(184, 151, 120, 0);
+    }
+}
+/* Выпадающее меню филиалов*/
+.floating-booking__menu {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    right: 0;
+    background: #fffdf9;
+    color: #2c221e;
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(44, 34, 30, 0.1);
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.25s ease;
+    border: 1px solid rgba(184, 151, 111, 0.2);
+    z-index: 1000;
+}
+
+/* Плавное появление меню по клику (.is-open) */
+.floating-booking.is-open .floating-booking__menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.floating-menu__title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #8c7b73;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 2px;
+}
+
+.floating-menu__item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 12px;
+    background: #f9f6f0;
+    border-radius: 8px;
+    color: #2c221e;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.floating-menu__item:hover {
+    background: #f0eae1;
+    color: #9c7c56;
+}
+
+.floating-menu__item small {
+    font-size: 11px;
+    color: #8c7b73;
+    margin-top: 2px;
+}
