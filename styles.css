@@ -1458,6 +1458,9 @@ body{
   flex-direction: column;
   gap: 16px;
   transition: transform var(--transition-default);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .price-card-item:hover {
@@ -1476,6 +1479,7 @@ body{
   font-weight: 700;
   color: var(--color-text);
   margin: 0;
+  word-break: break-word;
 }
 
 .price-card__title em {
@@ -1494,6 +1498,7 @@ body{
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .sessions-label {
@@ -1569,6 +1574,22 @@ body{
 
 .price-card-item[hidden] {
   display: none;
+}
+
+@media (max-width: 480px) {
+  .price-card-item {
+    padding: 16px;
+  }
+  .price-card-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .price-card__price-action {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 /* --- Компактные и крупные стили для карточки сотрудника --- */
 .team-card {
@@ -1963,10 +1984,12 @@ body{
 }
 .floating-booking {
     position: fixed;
-    bottom: 28px;
-    right: 28px;
+    bottom: 24px;
+    right: 16px;
     z-index: 999;
     font-family: inherit;
+    max-width: calc(100vw - 32px);
+    box-sizing: border-box;
 }
 
 /* Кнопка-капсула */
