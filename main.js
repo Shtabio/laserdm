@@ -329,27 +329,3 @@ if (floatingBooking && floatingToggle) {
         }
     });
 }
-// Match mobile contact buttons to the rendered franchise button.
-const franchiseButton = document.querySelector("#franchise .contact-panel__actions > .button");
-const contactActions = document.querySelector("#contacts .contact-panel__actions");
-
-if (franchiseButton && contactActions) {
-  const mobileButtons = window.matchMedia("(max-width: 768px)");
-  const syncContactButtonSize = () => {
-    if (mobileButtons.matches) {
-      const { width, height } = franchiseButton.getBoundingClientRect();
-      contactActions.style.setProperty("--franchise-button-width", `${width}px`);
-      contactActions.style.setProperty("--franchise-button-height", `${height}px`);
-    } else {
-      contactActions.style.removeProperty("--franchise-button-width");
-      contactActions.style.removeProperty("--franchise-button-height");
-    }
-  };
-
-  syncContactButtonSize();
-  window.addEventListener("resize", syncContactButtonSize);
-  document.fonts?.ready.then(syncContactButtonSize);
-  if ("ResizeObserver" in window) {
-    new ResizeObserver(syncContactButtonSize).observe(franchiseButton);
-  }
-}

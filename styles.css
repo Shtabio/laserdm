@@ -1143,19 +1143,28 @@ dd {
     width: 100%;
   }
 
+  #franchise .contact-panel__actions,
   #contacts .contact-panel__actions {
-    width: var(--franchise-button-width, 220px);
+    width: 220px;
     max-width: 100%;
+    align-items: stretch;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   #contacts .contact-panel__buttons,
   #contacts .contact-panel__messengers {
-    width: 100%;
+    width: 220px;
+    max-width: 100%;
+    align-items: stretch;
+    min-width: 0;
   }
 
-  #contacts .contact-panel__buttons .button {
-    width: 100%;
-    min-height: var(--franchise-button-height, 56px);
+  #franchise .contact-panel__actions > .button,
+  #contacts .contact-panel__buttons > .button {
+    width: 220px;
+    max-width: 100%;
+    min-height: 56px;
+    box-sizing: border-box;
   }
   .card-grid {
     grid-template-columns: 1fr;
