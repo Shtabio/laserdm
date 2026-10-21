@@ -856,6 +856,14 @@ dd {
     justify-content: center;
 }
 
+/* На ПК кнопки франшизы совпадают по размеру с кнопками контактов. */
+@media (min-width: 769px) {
+  #franchise .contact-panel__actions > .button {
+    width: 280px;
+    min-height: 56px;
+  }
+}
+
 .contact-panel__messengers {
     display: flex;
     flex-direction: column;
