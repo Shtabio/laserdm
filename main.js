@@ -329,3 +329,25 @@ if (floatingBooking && floatingToggle) {
         }
     });
 }
+
+// Keep the floating booking control away from footer links.
+const bookingFooter = document.querySelector(".site-footer");
+if (floatingBooking && bookingFooter) {
+  const updateBookingVisibility = () => {
+    const footerTop = bookingFooter.getBoundingClientRect().top;
+    const viewportHeight = window.innerHeight;
+    const footerVisible = footerTop < viewportHeight &&
+      bookingFooter.getBoundingClientRect().bottom > 0;
+    floatingBooking.hidden = footerVisible;
+    if (footerVisible) floatingBooking.classList.remove("is-open");
+  };
+
+  updateBookingVisibility();
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(updateBookingVisibility, { threshold: 0 })
+      .observe(bookingFooter);
+  } else {
+    window.addEventListener("scroll", updateBookingVisibility, { passive: true });
+  }
+  window.addEventListener("resize", updateBookingVisibility);
+}

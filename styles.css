@@ -2174,3 +2174,6 @@ body{
     color: #8c7b73;
     margin-top: 2px;
 }
+.floating-booking[hidden] {
+  display: none;
+}
