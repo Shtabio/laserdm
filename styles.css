@@ -1957,29 +1957,29 @@ body{
     margin-right: 4px; /* Точная оптическая центровка */
 }
 
-/* На мобильных навигация находится над карточкой и не закрывает текст. */
+/* Компактные стрелки по бокам, в пределах отступов карточки. */
 @media (max-width: 900px) {
-    .team-carousel-wrapper {
-        padding-top: 72px;
-    }
-
     .team-carousel {
         overflow-x: auto;
     }
 
-    .carousel-nav,
-    .carousel-nav:hover,
-    .carousel-nav:active {
-        top: 0;
-        transform: none;
+    .carousel-nav {
+        width: 32px;
+        height: 32px;
+    }
+
+    .carousel-nav::after {
+        width: 8px;
+        height: 8px;
+        border-width: 2px;
     }
 
     .carousel-nav--prev {
-        left: 0;
+        left: -12px;
     }
 
     .carousel-nav--next {
-        right: 0;
+        right: -12px;
     }
 }
 
