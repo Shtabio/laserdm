@@ -1127,22 +1127,27 @@ dd {
 .hero__scroll{
     display:none;
 }
-  .contact-panel__actions {
-    width: 220px;
-    max-width: 100%;
-  }
-
-  .contact-panel__buttons,
-  .contact-panel__messengers {
-    width: 100%;
-  }
-
   .contact-panel__buttons {
     flex-direction: column;
   }
 
-  .contact-panel__actions .button {
+  .contact-panel__buttons .button {
     width: 100%;
+  }
+
+  #contacts .contact-panel__actions {
+    width: var(--franchise-button-width, 220px);
+    max-width: 100%;
+  }
+
+  #contacts .contact-panel__buttons,
+  #contacts .contact-panel__messengers {
+    width: 100%;
+  }
+
+  #contacts .contact-panel__buttons .button {
+    width: 100%;
+    min-height: var(--franchise-button-height, 56px);
   }
   .card-grid {
     grid-template-columns: 1fr;
