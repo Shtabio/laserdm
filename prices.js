@@ -15,7 +15,7 @@ export const PRICES = [
     type: "sessions",
     prices: { 1: 5000, 4: 4800, 6: 4600, 8: 4400, 10: 4200 },
     description: "Выгодный базовый комплекс процедур.",
-    photo: "https://avatars.mds.yandex.net/get-sprav-products/5235338/2a0000019e59bb6e3eb6d963b80e876693a8/orig",
+    photo: "https://avatars.mds.yandex.net/get-sprav-products/2893106/2a0000019e59bb998c014069c1c91f64dfaa/orig",
     popular: true
   },
   {
@@ -24,7 +24,7 @@ export const PRICES = [
     type: "sessions",
     prices: { 1: 6000, 4: 5800, 6: 5600, 8: 5400, 10: 5200 },
     description: "Максимальный комплекс процедур для всей поверхности ног и тела.",
-    photo: "https://avatars.mds.yandex.net/get-sprav-products/2893106/2a0000019e59bb998c014069c1c91f64dfaa/orig",
+    photo: "https://avatars.mds.yandex.net/get-sprav-products/1356083/2a0000019e59bb396bbfc6fd12e0509cb93b/orig",
     popular: true
   },
   {

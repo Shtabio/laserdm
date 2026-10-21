@@ -201,16 +201,22 @@ nav?.addEventListener("click", (event) => {
   }
 });
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("is-visible");
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
+const revealItems = document.querySelectorAll(".reveal");
 
-document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0 });
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}
 
 const filterRows = () => {
   const query = searchInput.value.trim().toLowerCase();
