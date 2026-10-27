@@ -1470,7 +1470,7 @@ body{
 /* Стили карточек прайса с выбором сеансов по референсу */
 .price-items-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -1515,8 +1515,9 @@ body{
 }
 
 .price-card__title em {
-  display: inline-block;
-  margin-left: 8px;
+  display: block;
+  width: fit-content;
+  margin: 8px 0 0;
   padding: 2px 8px;
   background: var(--color-background);
   color: var(--color-secondary);
@@ -1576,10 +1577,11 @@ body{
 .price-card-bottom {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: stretch;
+  flex-direction: column;
   border-top: 1px solid var(--color-divider);
   padding-top: 16px;
-  margin-top: 4px;
+  margin-top: auto;
   gap: 16px;
 }
 
@@ -1587,14 +1589,22 @@ body{
   font-size: 14px;
   color: var(--color-muted);
   line-height: 1.5;
-  max-width: 60%;
+  max-width: none;
+  overflow-wrap: anywhere;
 }
 
 .price-card__price-action {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
   gap: 16px;
   flex-shrink: 0;
+}
+
+.price-card__price-action .button {
+  width: auto;
 }
 
 .price-val {
@@ -1614,7 +1624,7 @@ body{
   }
   .price-card-bottom {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 12px;
   }
   
@@ -2176,4 +2186,14 @@ body{
 }
 .floating-booking[hidden] {
   display: none;
+}
+
+.price-list__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+.price-list__actions .button[hidden] { display: none; }
+.team-card__image img[src=""] {
+  visibility: hidden;
 }

@@ -1,4 +1,4 @@
-import { PRICES } from "./prices.js";
+import { PRICES } from "./prices.js?v=20261022-descriptions";
 
 const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
@@ -150,6 +150,9 @@ const renderPrices = () => {
         <div class="price-items-grid">
           ${rows}
         </div>
+        <div class="price-list__actions">
+          <button class="button button--secondary" type="button" data-price-toggle aria-expanded="false" aria-controls="tab-${slug}">Открыть все услуги</button>
+        </div>
       </div>
     `;
   }).join("");
@@ -218,13 +221,40 @@ if ("IntersectionObserver" in window) {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
-const filterRows = () => {
-  const query = searchInput.value.trim().toLowerCase();
-  document.querySelectorAll(".price-list.is-active [data-price-row]").forEach((row) => {
-    const name = row.dataset.name || "";
-    row.hidden = query.length > 0 && !name.includes(query);
+const expandedPriceLists = new Set();
+const updatePriceList = (list) => {
+  const query = (searchInput?.value || "").trim().toLowerCase();
+  const expanded = expandedPriceLists.has(list.dataset.priceList);
+  let matches = 0;
+  list.querySelectorAll("[data-price-row]").forEach((row) => {
+    const matchesQuery = (row.dataset.name || "").includes(query);
+    row.hidden = query ? !matchesQuery : !expanded && matches >= 2;
+    if (matchesQuery) matches++;
   });
+  const toggle = list.querySelector("[data-price-toggle]");
+  toggle.hidden = Boolean(query) || matches <= 2;
+  toggle.setAttribute("aria-expanded", String(expanded));
+  toggle.textContent = expanded ? "Свернуть" : "Открыть все услуги";
 };
+const filterRows = () => {
+  document.querySelectorAll(".price-list.is-active").forEach(updatePriceList);
+};
+
+document.querySelectorAll("[data-price-list]").forEach(updatePriceList);
+priceLists?.addEventListener("click", (event) => {
+  const toggle = event.target.closest("[data-price-toggle]");
+  if (!toggle) return;
+  const list = toggle.closest("[data-price-list]");
+  const key = list.dataset.priceList;
+  const collapsing = expandedPriceLists.has(key);
+  if (collapsing) expandedPriceLists.delete(key);
+  else expandedPriceLists.add(key);
+  updatePriceList(list);
+  if (collapsing) {
+    document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    toggle.focus({ preventScroll: true });
+  }
+});
 
 document.querySelectorAll("[data-tab]").forEach((button) => {
   button.addEventListener("click", () => {
