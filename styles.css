@@ -1058,6 +1058,7 @@ dd {
     background: rgba(248, 247, 245, .96);
     color: var(--color-text);
     box-shadow: var(--shadow-soft);
+    visibility: hidden;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-12px);
@@ -1065,6 +1066,7 @@ dd {
   }
 
   .site-header__nav.is-open {
+    visibility: visible;
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
