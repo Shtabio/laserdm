@@ -222,17 +222,19 @@ if ("IntersectionObserver" in window) {
 }
 
 const expandedPriceLists = new Set();
+const mobilePriceLayout = window.matchMedia("(max-width: 768px)");
 const updatePriceList = (list) => {
   const query = (searchInput?.value || "").trim().toLowerCase();
   const expanded = expandedPriceLists.has(list.dataset.priceList);
+  const visibleLimit = mobilePriceLayout.matches ? 1 : 2;
   let matches = 0;
   list.querySelectorAll("[data-price-row]").forEach((row) => {
     const matchesQuery = (row.dataset.name || "").includes(query);
-    row.hidden = query ? !matchesQuery : !expanded && matches >= 2;
+    row.hidden = query ? !matchesQuery : !expanded && matches >= visibleLimit;
     if (matchesQuery) matches++;
   });
   const toggle = list.querySelector("[data-price-toggle]");
-  toggle.hidden = Boolean(query) || matches <= 2;
+  toggle.hidden = Boolean(query) || matches <= visibleLimit;
   toggle.setAttribute("aria-expanded", String(expanded));
   toggle.textContent = expanded ? "Свернуть" : "Открыть все услуги";
 };
@@ -241,6 +243,9 @@ const filterRows = () => {
 };
 
 document.querySelectorAll("[data-price-list]").forEach(updatePriceList);
+mobilePriceLayout.addEventListener("change", () => {
+  document.querySelectorAll("[data-price-list]").forEach(updatePriceList);
+});
 priceLists?.addEventListener("click", (event) => {
   const toggle = event.target.closest("[data-price-toggle]");
   if (!toggle) return;
