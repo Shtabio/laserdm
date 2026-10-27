@@ -2218,3 +2218,13 @@ body{
 .team-card__image img[src=""] {
   visibility: hidden;
 }
+
+.carousel-nav[hidden] {
+  display: none;
+}
+
+#contacts .contact-panel .button {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}

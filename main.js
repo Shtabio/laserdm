@@ -339,6 +339,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.getElementById('team-next');
 
     if (carousel && prevBtn && nextBtn) {
+        const updatePreviousArrow = () => {
+            prevBtn.hidden = carousel.scrollLeft <= 1;
+        };
+        updatePreviousArrow();
+        carousel.addEventListener('scroll', updatePreviousArrow, { passive: true });
+        window.addEventListener('resize', updatePreviousArrow);
+
         prevBtn.addEventListener('click', () => {
             carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
         });
