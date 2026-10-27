@@ -120,7 +120,7 @@ button {
     width: 100%;
     max-width: var(--container);
     margin: 0 auto;
-    padding: 0 80px;
+    padding-inline: 80px;
 }
 
 .section {
@@ -1021,7 +1021,7 @@ dd {
 
 @media (max-width: 1280px) {
 .container {
-    padding: 0 40px;
+    padding-inline: 40px;
 }
 
   .card-grid {
@@ -1117,7 +1117,7 @@ dd {
   }
 
 .container {
-    padding: 0 24px;
+    padding-inline: 24px;
 }
 
   .section {
@@ -1211,7 +1211,7 @@ dd {
 
 @media (max-width: 480px) {
 .container {
-    padding: 0 16px;
+    padding-inline: 16px;
   }
 
   .hero__title {
