@@ -339,12 +339,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.getElementById('team-next');
 
     if (carousel && prevBtn && nextBtn) {
-        const updatePreviousArrow = () => {
+        const updateCarouselArrows = () => {
             prevBtn.hidden = carousel.scrollLeft <= 1;
+            const remaining = carousel.scrollWidth - carousel.clientWidth - carousel.scrollLeft;
+            nextBtn.hidden = remaining <= 2;
         };
-        updatePreviousArrow();
-        carousel.addEventListener('scroll', updatePreviousArrow, { passive: true });
-        window.addEventListener('resize', updatePreviousArrow);
+        updateCarouselArrows();
+        carousel.addEventListener('scroll', updateCarouselArrows, { passive: true });
+        window.addEventListener('resize', updateCarouselArrows);
+        if ("ResizeObserver" in window) {
+            new ResizeObserver(updateCarouselArrows).observe(carousel);
+        }
 
         prevBtn.addEventListener('click', () => {
             carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
