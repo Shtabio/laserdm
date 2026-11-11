@@ -1,4 +1,4 @@
-import { PRICES } from "./prices.js?v=20261022-descriptions";
+import { PRICES } from "./prices.js?v=20261111-price-update";
 
 const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
