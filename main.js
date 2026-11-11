@@ -398,3 +398,20 @@ if (floatingBooking && bookingFooter) {
   }
   window.addEventListener("resize", updateBookingVisibility);
 }
+// Franchise contacts: phone on mobile, the Contacts Telegram on desktop.
+const franchiseContactButtons = document.querySelectorAll("[data-franchise-contact]");
+const contactTelegram = document.querySelector('#contacts a[href^="https://t.me/"]');
+if (franchiseContactButtons.length && contactTelegram) {
+  const mobileFranchiseContact = window.matchMedia("(max-width: 768px)");
+  const updateFranchiseContactLinks = () => {
+    franchiseContactButtons.forEach((button) => {
+      button.href = mobileFranchiseContact.matches
+        ? "tel:+79956293929"
+        : contactTelegram.href;
+      if (mobileFranchiseContact.matches) button.removeAttribute("target");
+      else button.setAttribute("target", "_blank");
+    });
+  };
+  updateFranchiseContactLinks();
+  mobileFranchiseContact.addEventListener("change", updateFranchiseContactLinks);
+}
